@@ -23,7 +23,7 @@ const renderList = async (mySearch) => {
   movieArr.forEach(element => {
     let posterDiv = document.createElement('div');
     posterDiv.classList.add("posterSet")
-    let posterTitle = document.createElement('h1');
+    let posterTitle = document.createElement('h3');
     let posterImage = document.createElement('div');
     if (element.poster_path === null) {
       posterImage.innerHTML = "No poster found.";
@@ -35,11 +35,18 @@ const renderList = async (mySearch) => {
     } else {
       posterTitle.innerText = element.title;
     }
+    const detailBtn = document.createElement('button');
+    detailBtn.classList.add('forDetails');
+    detailBtn.innerText = "View Details";
+    detailBtn.addEventListener('click', async () => {
+      alert(`${element.title}\nRealeased: ${element.release_date}\n\nOverview:\n${element.overview}`);
+    });
     posterDiv.appendChild(posterImage);
     posterDiv.appendChild(posterTitle);
+    posterDiv.appendChild(detailBtn);
     document.querySelector('.poster').appendChild(posterDiv);
   });
-  // console.log(movieArr);
+  console.log(movieArr);
 }
 
 /////////////////////
@@ -47,9 +54,11 @@ const renderList = async (mySearch) => {
 /////////////////////
 
 document.querySelector('#search').addEventListener('click', () => {
+  document.querySelector('.poster').innerHTML = "";
   let inputSearch = INPUT_SEARCH.value;
   // console.log(inputSearch);
   renderList(inputSearch);
+  document.getElementById('search-input').value = "";
 })
 
 ///////////

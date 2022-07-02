@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  background-color: #999999;
+  background-color: #666666;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -15,11 +15,16 @@ input {
 }
 
 img {
-  height: 200px;
+  max-height: 200px;
+}
+
+.creditAPI {
+  margin: 10px;
 }
 
 button {
   border: 1px solid black;
+  border-radius: 1px;
   background-color: #cc4949;
   color: white;
   padding: 8px;
@@ -38,6 +43,27 @@ button:hover {
   margin: 10px;
 }
 
-img {
-  /* display somewhere at page bottom/top */
+.poster {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.posterSet {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: solid 2px black;
+  border-radius: 1px;
+  margin: 10px;
+  background-color: #999999;
+}
+
+@media screen and (max-width: 600px) {
+  .poster {
+    display: flex;
+    flex-direction: column;
+  }
+  #logo {
+    width: 80vw;
+  }
 }
