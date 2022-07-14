@@ -2,7 +2,7 @@
 // Global Declaration //
 ////////////////////////
 
-const API_KEY = 'afd09d42337c11ce507632007964174f';
+const API_KEY = process.env.API_KEY
 const DOMAIN = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_PATH = 'https://image.tmdb.org/t/p/original';
 const INPUT_SEARCH = document.querySelector('#search-input');
